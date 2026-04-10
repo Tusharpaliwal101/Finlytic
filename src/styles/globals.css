@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --transition-speed: 0.17s;
+  }
+
+  body {
+    @apply font-sora bg-white text-slate-900 transition-colors;
+    transition-duration: var(--transition-speed);
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-50;
+  }
+
+  input, select, textarea {
+    @apply h-[44px] rounded-10 border-1.5 border-slate-200 bg-white px-4 outline-none transition-all focus:border-blue;
+    transition-duration: var(--transition-speed);
+  }
+
+  .dark input, .dark select, .dark textarea {
+    @apply border-slate-800 bg-slate-900 focus:border-blue;
+  }
+
+  button {
+    @apply rounded-10 font-semibold transition-all active:scale-[0.98];
+    transition-duration: var(--transition-speed);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-16 border-1.5 border-slate-100 bg-white shadow-brand transition-all hover:shadow-blue/5;
+    transition-duration: var(--transition-speed);
+  }
+
+  .dark .card {
+    @apply border-slate-800 bg-slate-900/50 shadow-none hover:border-blue/30;
+  }
+
+  .nav-item-active {
+    @apply border-l-[3px] border-blue bg-blue-light text-blue;
+  }
+
+  .dark .nav-item-active {
+    @apply bg-blue/10 text-blue;
+  }
+
+  .font-numbers {
+    @apply font-mono;
+  }
+}
+
+/* Custom transitions for all elements */
+* {
+  transition-timing-function: ease;
+}
